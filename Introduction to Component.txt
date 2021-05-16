@@ -1,0 +1,326 @@
+Introduction to Component
+So far we have learned what React and JSX are. We have learned their functionalities, their advantages and their limitations. These are big steps we’ve made but there’s a lot more cool stuff waiting for us!
+In this chapter, we’re going to learn more about one of the most important features in React: ‘component’, so we’re going to see:
+
+What is a component?
+How to create a component?
+What are the various component types?
+How to use a component?
+What is HOC in React?
+
+
+What is a Component ?
+First thing’s first, before we start off by defining the React component, let’s have a look at the definition of a component.
+By a simple search on Google, we encounter a lot of complicated definitions but let’s try and keep it simple. A component is a piece of code that can be reused and made to cooperate with other components to create a UI.
+Let’s have a look at the image below and see how it’s structured:
+
+Advantages of using components
+Working with components makes web development much easier. The reasons are:
+
+Reusability:
+Every implemented component can, if not must, be reused while building our web application.
+Let’s take the example of a sidebar on a dashboard, it will be used whichever page we display.
+
+Maintainability:
+Every component is implemented separately from the others so it can be maintained without affecting other UI compositions.
+
+Platform independence:
+In reality, the web components are built using HTML, CSS and JavaScript which make it a cross-platform.
+
+Privacy:
+Since every component is built to operate alone, that ensures that its content is more private than shared code.
+
+
+What is a React Component?
+Components are the building blocks of any React app. You will notice that a typical React app will have plenty of them.
+Simply put, a component is a JavaScript class or function that optionally accepts inputs i.e. properties or props and returns a React element that describes how a section of the UI (User Interface) should look like.
+
+// My first component
+const Greeting = () => <h1>Hello World from my first component!</h1>;
+This is a functional component (called Greeting) written using ES6’s arrow function syntax. It takes no props and returns an h1 tag with the text “Hello World today!”
+
+Types of components
+As we have said earlier, there are two types of React components, this division happened before the appearance of React version 16.8.
+But for the purpose of learning, it’s best if we know them.
+
+The two types of React components are:
+
+Class components: referring to JavaScript classes.
+Functional components: referring to JavaScript function.
+
+Class Components
+If you read articles on the Internet about React components, you will find the following names that refer to class components:
+
+Smart Component
+Before React 16.8, the logic was only implemented in this type of component, because of the advantage that classes give over functions.
+
+Stateful Component
+Before february 2019, only class could hold and manage JavaScript State.
+
+Container Components
+It’s called so, because usually it holds/contains other numeros (mostly functional) components.
+
+Enough theory, let’s take a look at an example:
+
+class Greeting extends React.Component {
+ render(){
+   return <h1>Hi, I’m a smart component!</h1>;
+ }
+}
+
+
+Functional Components:
+These components are purely presentational and are simply represented by a function. This function optionally takes props and returns a React element to be rendered to the page.
+
+Generally, it is preferred to use functional components whenever possible because of their predictability and conciseness. Since, they are purely presentational, their output is always the same if we give them the same props.
+
+You may find functional components referred to as stateless, dumb or presentational in other reading material. All these names are derived from the simple nature that functional components take on.
+
+Functional because they are basically functions
+Stateless because they do not hold and/or manage state
+Presentational because all they do is output UI elements
+But always remember, this is all before developing with React 16.8.
+For now, all functional component can do the same things as class based component.
+
+import React from "react";
+const Greeting = () => <h1>Hello World from my first component!</h1>;
+export default Greeting;
+-------------------------
+Creating our first component:
+After all that talk about components, it’s time to get our hands dirty.
+Let’s create our first react component!
+Creating a component is much easier than you think. In practice, a component is simply a function that returns JSX, that’s all we need to create a component.
+Using JavaScript’s power, we can manipulate these functions as we wish. We are going to create the component Greeting that we’ve seen before. It’s very simple. Just follow the instructions:
+
+Create the project in the src folder,
+Open the App.js,
+Then, copy-paste this code.
+import React from "react";
+const App = () => {
+ return (
+   <>
+     <h2>Hello from my first component !!</h2>
+   </>
+ );
+};
+export default App;
+Output
+
+
+Congratulation ! You have created your first component. And YES! The App.js is also a component. We will get to know it more in the next slides.
+
+What should we remember?
+There are a few things that you should notice about that first example, the first one is the import React from "react"; well it’s mandatory since we work with JSX and the export default App; this is also a mandatory action that must be performed. We’ll explain its necessity. Remember the course on ES6, and how it made our life much easier as a developper. Time to rewind and take advantage of it.
+
+In order to separate the components from each other, we have to use the JavaScript modularity.
+
+React also give us the possibility to use the named exports and the default exports
+
+The last thing that you should notice is that the component is starting with an uppercase letter. That’s necessary so we do not confuse it with simple HTML tags.
+
+Default export
+Similar to JavaScript file, we can export our component, as the example below shows, using the keyword export default.
+
+const MyFirstComponent = () => {
+ return (
+   <>
+     <h2>Hello from my first component !!</h2>
+   </>
+ );
+};
+export default MyFirstComponent;
+By doing that we’ve made the file MyComponent.js export automatically the component MyFirstComponent.
+
+Named exports
+The other way to export a component is by the named export. Let’s take a look at the example.
+
+This is how we can export more than one component from a single file.
+
+import React from "react";
+export const MyFirstComponent = () => {
+ return (
+   <>
+     <h2>Hello from my first component !!</h2>
+   </>
+ );
+};
+
+export const MySecondComponent = () => {
+ return (
+   <>
+     <h2>Hello from my second component!! </h2>
+   </>
+ );
+};
+
+Best Practices for Creating a Component:
+After creating our first component, here is a list of some common best practices that we should know:
+
+Keep components small and function-specific:
+
+Function-specific components can be standalone, which makes testing and maintenance easier.
+Each small component can be reused across multiple projects.
+With smaller components, it’s easier to implement performance optimizations.
+It’s easier to update smaller components.
+Bigger components have to perform harder and may be difficult to maintain.
+Name the component after the function:
+It’s a good idea to name a component after the function that it executes so that it’s easily recognizable.
+
+Keep them all in a single folder:
+Keep all files relating to a component in a single folder, including styling files.
+
+Reusability is important.
+
+----------------------------------------------------------
+
+Using a Component
+After creating our first component, it’s time to use it.
+
+To make it happen, we will return again to JavaScript modularity. In order to use any external module in our local file, we should import it first.
+Let’s see an example to consolidate this.
+
+MyFirstComponent.js
+import React from "react";
+
+const MyFirstComponent = () => {
+ return <h1> hello from my first component </h1>;
+};
+export default MyFirstComponent;
+App.js
+import React from "react";
+import MyFirstComponent from "./MyFirstComponent";
+const App = () => (
+ <>
+   <MyFirstComponent />
+ </>
+);
+export default App;
+
+
+Using a Component
+Buckle up! It’s time we started creating things.
+
+As we can see, we find the component MyFirstComponent inside the App. It’s only right to ask if the constant App is a component or not. The answer is: Yes, a component can be composed of many other components.
+
+const App = () => {
+ return (
+   <div>
+     <Header /> // Header Component
+     <Footer />
+     // Footer Component
+   </div>
+ );
+};
+When one component uses another like this, a parent-child relationship is formed. In above example :
+
+The App component is the parent to the Header and Footer components.
+The Header and Footer components are the child of the App component.
+
+
+Using a component as a root
+We talked earlier about the ReactDom.render() method in the JSX chapter. Basically, that method exists in the index.js file. This file is called the root component.
+
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+const rootElement = document.getElementById("root");//We call this a “root” DOM node because everything inside it will be managed by React DOM.
+ReactDOM.render(<App />,rootElement);
+You can notice that applications built with React have a single root DOM node.
+
+What is HOC?
+We have seen the higher order function in JavaScript, which is a function that accepts another function as a parameter.
+
+Well, React clones and imitates that functionality with a component, so it gives us the possibility to create a Higher-Order Component which is a component that accepts a component as a parameter.
+
+Essentially, a higher-order component is a function that takes a component and returns a new component.
+
+
+Why HOC?
+In software development, there is one important principle that is commonly used by the name of « DRY » (which stands for "Don’t Repeat Yourself").
+
+Creating a simple utility function, that is used across several parts of the codebase is something you may have done repeatedly. You are essentially following the DRY principle by doing so. You are reusing the same utility function, without repeating the code.
+
+In React, one of the ways to follow “DRY” across components, is to use the Higher-Order Component (HOC) concept. We can share common functionalities without repeating code.
+
+Example of HOC
+In this example, we will add a waiting message on the wrapped component. Don’t get too overwhelmed by this strange code. We’ll break it down later.
+
+import React from "react";
+
+const higherOrderComponent = WrappedComponent => {
+ class HOC extends React.Component {
+   state = {
+     isLoading: false
+   };
+
+   render() {
+     return this.state.isLoading ? (
+       <h1>Wait a moment...</h1>
+     ) : (
+       <WrappedComponent />
+     );
+   }
+ }
+ return HOC;
+};
+
+-------------------------
+Returning multiple nodes:
+Since the component is only but a JavaScript function, and we know that JavaScript functions can only return a single object, value or item, therefore, the component can only return one JSX element.
+Granted, it all seems a bit overcomplicated. Here is the right way to do it.
+We wrap all the selected elements inside a single element div or section or any other wrapper of our choice. Take a look at the example below.
+
+const MyComponent = () => {
+   // return multiple root node
+   // WRONG!
+   return (
+    <Comp1 />
+    <Comp2 />
+   )
+   }
+   // this code will trigger an error
+   // Parse Error: Adjacent JSX elements must be wrapped in an enclosing tag
+The correct way to do it:
+return (
+ <div>
+   <Comp1 />
+   <Comp2 />
+ </div>
+);
+
+React fragment
+Naturally, the div or section or any other HTML container inherently have default CSS properties that could affect our design.
+To sidestep these default properties, React gives us the React.Fragment which is a wrapper that has no effect on the CSS. A React fragment cannot be styled.
+
+Take a look at its syntax in the provided example:
+
+return (
+ <React.Fragment>
+   <div />
+   <div />
+ </React.Fragment>
+);
+//this also is valid
+return (
+ <>
+   <div />
+   <div />
+ </>
+);
+
+Using absolute paths
+Using an absolute path can be a little bit tricky and it can lead to a lot of problems when trying to reuse the component.
+
+⇒ So, we advise you to use the relative paths instead.
+
+//relative path
+import MyFirstComponent from "./MyFirstComponent";
+//absolute path
+import MyFirstComponent from '/src/component/MyFirstComponent'
+
+
+Time to Recap!
+We’ve made some impressive progress. We now know how components work and how we can utilize them to develop modular React code that represents different sections of our user interface.
+
+In summary, React components are the building block of any react application, components give us the ability to reuse the same codebase. React also proposes two types of components, in addition to the ability of using the HOCs pattern in making 
+the building of our UI much easier.
